@@ -12,8 +12,14 @@
 Method1 : customizeRegistration(Dynamic registration)
 
 ```java
+import javax.servlet.MultipartConfigElement;
+
 @Override
 protected void customizeRegistration(Dynamic registration) {
-    registration.set
+    registration.setMultiPartConfig(
+            new MultipartConfigElement("/tmp/spittr/uploads")
+    );
 }
 ```
+
+### 7.1.2 
