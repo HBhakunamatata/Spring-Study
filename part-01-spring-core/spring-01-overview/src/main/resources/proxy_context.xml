@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop
+        https://www.springframework.org/schema/aop/spring-aop.xsd">
+
+
+    <!--  method 01  -->
+
+    <bean class="cloud.popples.overview.aop.eglog.method_1.ServletImpl01" id="servletImpl01"/>
+    <bean class="cloud.popples.overview.aop.eglog.method_1.LogBefore" id="logBefore"/>
+    <bean class="cloud.popples.overview.aop.eglog.method_1.LogAfter" id="logAfter"/>
+    
+    <aop:config>
+        <aop:pointcut id="myPointCut01" expression="execution(* cloud.popples.overview.aop.eglog.method_1.ServletImpl01.*(..))"/>
+        <aop:advisor advice-ref="logBefore" pointcut-ref="myPointCut01"/>
+        <aop:advisor advice-ref="logAfter" pointcut-ref="myPointCut01" />
+    </aop:config>
+
+
+    <!--  method 02  -->
+
+    <bean class="cloud.popples.overview.aop.eglog.method_2.ServletImpl02" id="servletImpl02"/>
+    <bean class="cloud.popples.overview.aop.eglog.method_2.MyPointCut" id="myPointCut"/>
+
+    <aop:config>
+        <aop:aspect ref="myPointCut">
+            <aop:pointcut id="myPointCut02" expression="execution(* cloud.popples.overview.aop.eglog.method_2.ServletImpl02.*(..))"/>
+            <aop:before method="logBefore02" pointcut-ref="myPointCut02"/>
+            <aop:after method="logAfter02" pointcut-ref="myPointCut02"/>
+        </aop:aspect>
+    </aop:config>
+
+
+    <!--  method 3  -->
+    <bean class="cloud.popples.overview.aop.eglog.method_3.ServletImpl03" id="servletImpl03"/>
+    <bean class="cloud.popples.overview.aop.eglog.method_3.AnnotationPointCut" id="annotationPointCut"/>
+    <aop:aspectj-autoproxy/>
+
+
+</beans>

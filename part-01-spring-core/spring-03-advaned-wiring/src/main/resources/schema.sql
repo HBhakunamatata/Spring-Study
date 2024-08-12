@@ -1,0 +1,1 @@
+create table tb_demo(id int primary key, name varchar(255));

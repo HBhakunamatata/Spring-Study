@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>cloud.popples</groupId>
+        <artifactId>Spring-Study</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <packaging>pom</packaging>
+
+    <groupId>cloud.popples</groupId>
+    <artifactId>part-01-spring-core</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+
+    <modules>
+        <module>spring-01-overview</module>
+        <module>spring-03-advaned-wiring</module>
+        <module>spring-02-wiring-beans</module>
+        <module>spring-04-aspect-oriented</module>
+    </modules>
+
+
+    <dependencies>
+        <!-- https://mvnrepository.com/artifact/com.h2database/h2 -->
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>2.1.214</version>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+
+
+</project>
