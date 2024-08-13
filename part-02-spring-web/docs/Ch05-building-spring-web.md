@@ -10,9 +10,9 @@ picture
 
 1. Configuring DispatcherServlet
     - WebApplicationInitializer
-    - ServletMapping
-    - RootConfig
-    - WebConfig
+    - ServletMapping : identifies one or more paths for DispatcherServlet
+    - WebConfig : DispatcherServlet load its application context in beans defined in the WebConfig.class.
+    - RootConfig : ContextLoaderListener is expected to load the other beans in your application.
 
 ```java
 public class SpittrWebAppInitializer

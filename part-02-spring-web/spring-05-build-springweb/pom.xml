@@ -10,11 +10,13 @@
     </parent>
 
     <artifactId>spring-05-build-springweb</artifactId>
+    <packaging>war</packaging>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <failOnMissingWebXml>false</failOnMissingWebXml>
     </properties>
 
     <dependencies>
@@ -25,5 +27,16 @@
             <version>1.1.0.Final</version>
         </dependency>
     </dependencies>
+
+    <build>
+        <finalName>spring-05-build-springweb</finalName>
+        <plugins>
+            <plugin>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.0.0</version>
+            </plugin>
+        </plugins>
+    </build>
+
 
 </project>
