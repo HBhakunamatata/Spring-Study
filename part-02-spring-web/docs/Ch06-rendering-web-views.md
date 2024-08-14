@@ -29,3 +29,63 @@ public interface View {
 
 ### 6.4.1 Configuring a Thymeleaf view resolver
 
+```java
+@Bean
+public ViewResolver viewResolver(TemplateEngine templateEngine) {
+    ThymeleafViewResolver viewResolver = new ThymeleafViewResolver();
+    viewResolver.setTemplateEngine(templateEngine);
+    return viewResolver;
+}
+
+@Bean
+public TemplateEngine templateEngine(ITemplateResolver templateResolver) {
+    SpringTemplateEngine templateEngine = new SpringTemplateEngine();
+    templateEngine.setTemplateResolver(templateResolver);
+    return templateEngine;
+}
+
+@Bean
+public ITemplateResolver templateResolver() {
+    SpringResourceTemplateResolver templateResolver = new SpringResourceTemplateResolver();
+    templateResolver.setApplicationContext(applicationContext);
+    templateResolver.setPrefix("/WEB-INF/templates/");
+    templateResolver.setSuffix(".html");
+    templateResolver.setTemplateMode(TemplateMode.HTML);
+    return templateResolver;
+}
+```
+
+### 6.4.2 Defining Thymeleaf templates
+
+```thymeleafexpressions
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Spittr</title>
+    <link rel="stylesheet"
+          type="text/css"
+          th:href="@{/static/style.css}"></link>
+</head>
+<body>
+    <h1>Welcome to Spittr</h1>
+    <a th:href="@{/spittles}">Spittles</a> |
+    <a th:href="@{/spitter/register}">Register</a>
+    
+    
+    <form method="POST" th:object="${spitter}">
+        <div class="errors" th:if="${#fields.hasErrors('*')}">
+            <ul>
+                <li th:each="err : ${#fields.errors('*')}"
+                    th:text="${err}">Input is incorrect</li>
+            </ul>
+        </div>
+        
+        <label th:class="${#fields.hasErrors('password')}? 'error'">Password</label>:
+        <input type="password" th:field="*{password}"
+                th:class="${#fields.hasErrors('password')}? 'error'" /><br/>
+        
+        <input type="submit" value="Register" />
+    </form>
+</body>
+</html>
+```
