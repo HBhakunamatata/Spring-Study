@@ -4,7 +4,7 @@
 
 ### 5.1.1 Following the life of a request
 
-picture
+![request-of-life](images/511-follow-request-life.png)
 
 ### 5.1.2 Setting up Spring MVC (Configuration)
 
