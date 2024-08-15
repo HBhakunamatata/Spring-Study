@@ -13,6 +13,7 @@ public class SpitterRepositoryImpl implements SpitterRepository {
 
     @Override
     public Spitter findByUsername(String username) {
-        return null;
+        Spitter spitter = new Spitter();
+        return spitter;
     }
 }
