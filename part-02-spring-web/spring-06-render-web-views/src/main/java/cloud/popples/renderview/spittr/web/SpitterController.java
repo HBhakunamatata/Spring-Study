@@ -5,6 +5,7 @@ import cloud.popples.renderview.spittr.repository.SpitterRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -26,14 +27,16 @@ public class SpitterController {
 
     @RequestMapping(value = "/register", method = GET)
     public String showRegistrationForm(Model model) {
-        Spitter spitter = new Spitter();
+        Spitter spitter = new Spitter("", "", "", "", "");
         model.addAttribute("spitter", spitter);
         return "registerForm";
     }
 
     @RequestMapping(value = "/register", method = POST)
-    public String processRegistration(@Valid Spitter spitter) {
-        System.out.println(spitter);
+    public String processRegistration(@Valid Spitter spitter, BindingResult result) {
+        if (result.hasErrors()) {
+            return "registerForm";
+        }
         repository.save(spitter);
         return "redirect:/spitter/" + spitter.getUsername();
     }

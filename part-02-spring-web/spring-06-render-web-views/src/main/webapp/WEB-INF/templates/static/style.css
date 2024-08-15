@@ -1,7 +1,11 @@
-label.error {
+.error {
     color: red;
 }
 
 input.error {
     background-color: #ffcccc;
+}
+
+p {
+    color: aqua;
 }
