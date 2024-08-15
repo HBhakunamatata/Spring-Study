@@ -8,6 +8,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.validation.Valid;
+
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
@@ -30,7 +32,8 @@ public class SpitterController {
     }
 
     @RequestMapping(value = "/register", method = POST)
-    public String processRegistration(Spitter spitter) {
+    public String processRegistration(@Valid Spitter spitter) {
+        System.out.println(spitter);
         repository.save(spitter);
         return "redirect:/spitter/" + spitter.getUsername();
     }
