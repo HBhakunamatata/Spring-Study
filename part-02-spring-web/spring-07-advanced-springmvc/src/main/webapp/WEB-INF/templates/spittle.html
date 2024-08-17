@@ -8,9 +8,13 @@
 </head>
 
 <body>
-    <h1>Your Profile</h1>
-    <p th:text="${spitter.username}" /><br/>
-    <p th:text="${spitter.firstName}" />
-    <p th:text="${spitter.lastName}" />
+<div class="spittleView">
+    <div class="spittleMessage">
+        <p th:text="${spittle.message}"></p>
+    </div>
+    <div>
+        <span th:text="${spittle.time}"></span>
+    </div>
+</div>
 </body>
 </html>

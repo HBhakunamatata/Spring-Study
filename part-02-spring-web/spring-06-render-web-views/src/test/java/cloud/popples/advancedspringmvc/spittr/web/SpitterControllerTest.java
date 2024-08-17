@@ -1,4 +1,4 @@
-package cloud.popples.renderview.spittr.web;
+package cloud.popples.advancedspringmvc.spittr.web;
 
 import cloud.popples.renderview.spittr.pojo.Spitter;
 import cloud.popples.renderview.spittr.repository.SpitterRepository;

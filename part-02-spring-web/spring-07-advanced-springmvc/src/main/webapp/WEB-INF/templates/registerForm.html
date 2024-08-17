@@ -1,14 +1,14 @@
-<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Spittr</title>
-    <link rel="stylesheet" type="text/css"
-          th:href="@{/static/style.css}" >
+    <link rel="stylesheet"
+          type="text/css"
+          th:href="@{/static/style.css}"></link>
 </head>
 <body>
 <h1>Register</h1>
-<form method="POST" th:object="${spitter}">
+<form method="POST" th:object="${spitter}" enctype="multipart/form-data">
     <div class="error" th:if="${#fields.hasErrors('*')}">
         <ul>
             <li th:each="err : ${#fields.errors('*')}"
@@ -39,6 +39,9 @@
         Password</label>:
     <input type="password" th:field="*{password}"
            th:class="${#fields.hasErrors('password')}? 'error'" /><br/>
+
+    <label>Profile Picture</label>:
+    <input type="file" name="profilePicture" accept="image/gif,image/png,image/jpeg" /></br>
 
     <input type="submit" value="Register" />
 </form>

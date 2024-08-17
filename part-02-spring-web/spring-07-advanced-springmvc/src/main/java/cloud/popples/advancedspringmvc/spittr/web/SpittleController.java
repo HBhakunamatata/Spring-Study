@@ -1,14 +1,18 @@
 package cloud.popples.advancedspringmvc.spittr.web;
 
-import cloud.popples.renderview.spittr.pojo.Spittle;
-import cloud.popples.renderview.spittr.repository.SpittleRepository;
+import cloud.popples.advancedspringmvc.spittr.exceptionhandler.SpittleDuplicateException;
+import cloud.popples.advancedspringmvc.spittr.exceptionhandler.SpittleNotFoundException;
+import cloud.popples.advancedspringmvc.spittr.pojo.Spittle;
+import cloud.popples.advancedspringmvc.spittr.repository.SpittleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.Date;
 import java.util.List;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
@@ -35,15 +39,26 @@ public class SpittleController {
     }
 
     @RequestMapping(value = "/spittles/{spittleId}", method = GET)
-    public Spittle spittle(@PathVariable(value = "spittleId") Long id,
+    public String spittle(@PathVariable(value = "spittleId") Long id,
                            Model model) {
-//        model.addAttribute("spittle", spittleRepository.findOne(id));
-//        return "spittle";
-        return spittleRepository.findOne(id);
+        Spittle spittle = spittleRepository.findOne(id);
+        if (spittle == null) {
+//            throw new SpittleNotFoundException();
+            throw new SpittleDuplicateException();
+        }
+        model.addAttribute("spittle", spittle);
+        return "spittle";
     }
 
-    @RequestMapping(value = "spittle/register", method = GET)
-    public String registerSpittle() {
-        return "registerForm";
+    public String saveSpittle(Spittle spittle, Model model) {
+        spittleRepository.save(new Spittle("", new Date(), 0.0, 0.0));
+        return "redirect:/recentspittles";
     }
+
+
+//    @ExceptionHandler(SpittleDuplicateException.class)
+//    public String handleDuplicateSpittle() {
+//        return "error/duplicate";
+//    }
+
 }

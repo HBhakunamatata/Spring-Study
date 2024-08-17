@@ -1,4 +1,4 @@
-package cloud.popples.renderview.spittr.web;
+package cloud.popples.advancedspringmvc.spittr.web;
 
 import org.junit.Test;
 import org.springframework.test.web.servlet.MockMvc;
