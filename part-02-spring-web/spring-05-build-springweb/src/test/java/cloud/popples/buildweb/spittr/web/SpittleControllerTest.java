@@ -47,7 +47,7 @@ public class SpittleControllerTest {
         SpittleController controller = new SpittleController(mockRepository);
         MockMvc mockMvc = MockMvcBuilders.standaloneSetup(controller).build();
         mockMvc.perform(MockMvcRequestBuilders.get("/spittles/12345"))
-                .andExpect(MockMvcResultMatchers.view().name("spittles/12345"))
+                .andExpect(MockMvcResultMatchers.view().name("spittle"))
                 .andExpect(MockMvcResultMatchers.model().attributeExists("spittle"))
                 .andExpect(MockMvcResultMatchers.model().attribute("spittle", expectedSpittle));
     }

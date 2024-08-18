@@ -35,11 +35,11 @@ public class SpittleController {
     }
 
     @RequestMapping(value = "/spittles/{spittleId}", method = GET)
-    public Spittle spittle(@PathVariable(value = "spittleId") Long id,
+    public String spittle(@PathVariable(value = "spittleId") Long id,
                            Model model) {
-//        model.addAttribute("spittle", spittleRepository.findOne(id));
-//        return "spittle";
-        return spittleRepository.findOne(id);
+        model.addAttribute("spittle", spittleRepository.findOne(id));
+        return "spittle";
+//        return spittleRepository.findOne(id);
     }
 
     @RequestMapping(value = "spittle/register", method = GET)

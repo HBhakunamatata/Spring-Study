@@ -1,6 +1,5 @@
 package cloud.popples.renderview.spittr.web;
 
-import cloud.popples.advancedspringmvc.spittr.web.SpittleController;
 import cloud.popples.renderview.spittr.pojo.Spittle;
 import cloud.popples.renderview.spittr.repository.SpittleRepository;
 import org.junit.Test;
@@ -48,7 +47,7 @@ public class SpittleControllerTest {
         SpittleController controller = new SpittleController(mockRepository);
         MockMvc mockMvc = MockMvcBuilders.standaloneSetup(controller).build();
         mockMvc.perform(MockMvcRequestBuilders.get("/spittles/12345"))
-                .andExpect(MockMvcResultMatchers.view().name("spittles/12345"))
+                .andExpect(MockMvcResultMatchers.view().name("spittle"))
                 .andExpect(MockMvcResultMatchers.model().attributeExists("spittle"))
                 .andExpect(MockMvcResultMatchers.model().attribute("spittle", expectedSpittle));
     }
