@@ -1,5 +1,6 @@
-package cloud.popples.advancedspringmvc.spittr.web;
+package cloud.popples.renderview.spittr.web;
 
+import cloud.popples.advancedspringmvc.spittr.web.HomeController;
 import org.junit.Test;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;

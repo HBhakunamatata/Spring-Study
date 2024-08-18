@@ -1,5 +1,6 @@
-package cloud.popples.advancedspringmvc.spittr.web;
+package cloud.popples.renderview.spittr.web;
 
+import cloud.popples.advancedspringmvc.spittr.web.SpittleController;
 import cloud.popples.renderview.spittr.pojo.Spittle;
 import cloud.popples.renderview.spittr.repository.SpittleRepository;
 import org.junit.Test;

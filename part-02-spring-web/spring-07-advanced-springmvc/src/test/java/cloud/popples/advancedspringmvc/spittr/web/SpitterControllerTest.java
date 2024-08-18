@@ -8,7 +8,10 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
+import java.nio.charset.StandardCharsets;
+
 import static org.mockito.Mockito.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.fileUpload;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 
 public class SpitterControllerTest {
@@ -32,13 +35,15 @@ public class SpitterControllerTest {
 
         SpitterController controller = new SpitterController(mockRepository);
         MockMvc mockMvc = MockMvcBuilders.standaloneSetup(controller).build();
-        mockMvc.perform(post("/spitter/register")
+
+        mockMvc.perform(fileUpload("/spitter/register")
+                .file("profilePicture", "aaa".getBytes(StandardCharsets.UTF_8))
                 .param("username", "jbauer")
                 .param("password", "24hours")
                 .param("firstName", "Jack")
                 .param("lastName", "Bauer"))
-                .andExpect(MockMvcResultMatchers.redirectedUrl("/spitter/jbauer"));
-
+                .andExpect(MockMvcResultMatchers.redirectedUrl("/spitter/jbauer?id=24")
+        );
         verify(mockRepository, atLeastOnce()).save(unsaved);
 
     }
