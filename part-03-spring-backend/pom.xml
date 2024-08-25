@@ -9,15 +9,10 @@
         <version>1.0.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>part-02-spring-web</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <artifactId>part-03-spring-backend</artifactId>
     <packaging>pom</packaging>
-
     <modules>
-        <module>spring-05-build-springweb</module>
-        <module>spring-06-render-web-views</module>
-        <module>spring-07-advanced-springmvc</module>
-        <module>spring-09-securing-web-application</module>
+        <module>spring-10-database-and-jdbc</module>
     </modules>
 
     <properties>
@@ -28,14 +23,17 @@
 
     <dependencies>
         <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <version>3.0.1</version>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>${spring-version}</version>
         </dependency>
 
-
-
-
+        <!-- https://mvnrepository.com/artifact/com.mysql/mysql-connector-j -->
+        <dependency>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+            <version>8.0.33</version>
+        </dependency>
     </dependencies>
 
 </project>
