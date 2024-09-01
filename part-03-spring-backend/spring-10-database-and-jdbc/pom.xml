@@ -8,15 +8,10 @@
     </parent>
     <artifactId>spring-10-database-and-jdbc</artifactId>
     <packaging>war</packaging>
-    <name>spring-10-database-and-jdbc Maven Webapp</name>
+    <name>spring-10-database-and-jdbc</name>
     <url>http://maven.apache.org</url>
     <dependencies>
-        <!-- https://mvnrepository.com/artifact/com.mchange/c3p0 -->
-        <dependency>
-            <groupId>com.mchange</groupId>
-            <artifactId>c3p0</artifactId>
-            <version>0.10.1</version>
-        </dependency>
+
 
         <!-- https://mvnrepository.com/artifact/com.h2database/h2 -->
         <dependency>

@@ -33,7 +33,7 @@ public class DataSourceConfig {
     public DataSource qaDataSource() throws PropertyVetoException {
         ComboPooledDataSource dataSource = new ComboPooledDataSource();
         dataSource.setDriverClass("com.mysql.jdbc.Driver");
-        dataSource.setJdbcUrl("jdbc:mysql://127.0.0.1:3306/spittr?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&useSSL=false");
+        dataSource.setJdbcUrl("jdbc:mysql://127.0.0.1:3306/spittr?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true");
         dataSource.setUser("root");
         dataSource.setPassword("123456");
         dataSource.setInitialPoolSize(5);
@@ -46,7 +46,7 @@ public class DataSourceConfig {
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://127.0.0.1:3306/spittr?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&useSSL=false");
+        dataSource.setUrl("jdbc:mysql://127.0.0.1:3306/spittr?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true");
         dataSource.setUsername("root");
         dataSource.setPassword("123456");
         return dataSource;
