@@ -13,6 +13,9 @@
     <packaging>pom</packaging>
     <modules>
         <module>spring-10-database-and-jdbc</module>
+        <module>spring-11-spring-with-orm</module>
+        <module>spring-12-work-with-nosql</module>
+        <module>spring-13-caching-data</module>
     </modules>
 
     <properties>
@@ -34,6 +37,16 @@
             <artifactId>mysql-connector-j</artifactId>
             <version>8.0.33</version>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.mchange/c3p0 -->
+        <dependency>
+            <groupId>com.mchange</groupId>
+            <artifactId>c3p0</artifactId>
+            <version>0.10.1</version>
+        </dependency>
+
+
+
     </dependencies>
 
 </project>
