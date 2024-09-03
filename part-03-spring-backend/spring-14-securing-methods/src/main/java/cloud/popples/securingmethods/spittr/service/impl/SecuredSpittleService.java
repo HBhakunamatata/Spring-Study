@@ -3,9 +3,7 @@ package cloud.popples.securingmethods.spittr.service.impl;
 import cloud.popples.securingmethods.spittr.domain.Spittle;
 import cloud.popples.securingmethods.spittr.service.SpittleService;
 import org.springframework.security.access.annotation.Secured;
-import org.springframework.stereotype.Service;
 
-@Service
 public class SecuredSpittleService implements SpittleService {
     @Override
     @Secured({"ROLE_SPITTER", "ROLE_ADMIN"})

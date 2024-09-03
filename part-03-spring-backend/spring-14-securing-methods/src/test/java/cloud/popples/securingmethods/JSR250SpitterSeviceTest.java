@@ -1,7 +1,6 @@
 package cloud.popples.securingmethods;
 
 import cloud.popples.securingmethods.spittr.config.JSR250SecureConfig;
-import cloud.popples.securingmethods.spittr.config.SecuredMethodConfig;
 import cloud.popples.securingmethods.spittr.domain.Spitter;
 import cloud.popples.securingmethods.spittr.domain.Spittle;
 import cloud.popples.securingmethods.spittr.service.SpittleService;

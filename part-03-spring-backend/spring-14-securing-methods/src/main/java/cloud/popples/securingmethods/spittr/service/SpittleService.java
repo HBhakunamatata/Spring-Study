@@ -1,9 +1,7 @@
 package cloud.popples.securingmethods.spittr.service;
 
 import cloud.popples.securingmethods.spittr.domain.Spittle;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 
-import java.security.Principal;
 import java.util.Collections;
 import java.util.List;
 
