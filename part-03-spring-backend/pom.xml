@@ -16,6 +16,7 @@
         <module>spring-11-spring-with-orm</module>
         <module>spring-12-work-with-nosql</module>
         <module>spring-13-caching-data</module>
+        <module>spring-14-securing-methods</module>
     </modules>
 
     <properties>
