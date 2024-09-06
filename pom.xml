@@ -13,6 +13,7 @@
         <module>part-01-spring-core</module>
         <module>part-02-spring-web</module>
         <module>part-03-spring-backend</module>
+        <module>part-04-integrating-spring</module>
     </modules>
 
     <properties>
