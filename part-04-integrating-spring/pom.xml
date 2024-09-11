@@ -15,13 +15,12 @@
     <modules>
         <module>spring-15-work-with-remote-services</module>
         <module>spring-16-creating-restapi</module>
+        <module>spring-17-messaging-in-spring</module>
+        <module>spring-18-messaging-with-websocket-stomp</module>
     </modules>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
-    <dependencies>
-
-    </dependencies>
 </project>
