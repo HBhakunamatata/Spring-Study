@@ -9,8 +9,15 @@
 
 Asynchronous message = message broker + destination
 
-picture : POint-to-POoint
-picture : DEscribe-Subscrib
+### 17.1.1 Two models of asynchronous messaging
+
+1. Point-to-Point
+
+![point-to-point](images/171-asynchronous-message-point-to-point.png)
+
+2. Publisher-Subscribe
+
+![publisher-and-subscriber](images/172-asynchronous-message-pub-and-sub.png)
 
 ### 17.1.2 Advantages of asynchronous messaging
 
@@ -21,7 +28,11 @@ picture : DEscribe-Subscrib
 
 ## 17.2 Sending messages with JMS
 
+### 17.2.0 Introduction to JMS
+
 The Java Message Service (JMS) is a Java standard that defines a common API for working with message brokers.
+
+### 17.2.1 Config files
 
 ```xml
 <dependency>
@@ -36,8 +47,6 @@ The Java Message Service (JMS) is a Java standard that defines a common API for 
 <version>${spring-version}</version>
 </dependency>
 ```
-
-#### Config files
 
 1. ActiveMQConnectionFactory
 
@@ -83,7 +92,7 @@ public MessageConverter simpleMessageConverter() {
 }
 ```
 
-#### Sending Messages
+### 17.2.2 Sending Messages
 
 ```java
 @Override
@@ -92,7 +101,7 @@ public void sendMessage(String message) {
 }
 ```
 
-#### Receiving Messages
+### 17.2.3 Receiving Messages
 
 ```java
 @Override
@@ -102,13 +111,17 @@ public void receiveMessage() {
 }
 ```
 
-The big downside of consuming messages with JmsTemplate is that both the receive() and receiveAndConvert() methods are synchronous.
+## 17.3 message-driven POJO and Message-Listener (Receiving Messages)
 
-1. Creating message-driven POJO
+However, the big downside of consuming messages with JmsTemplate is that both the receive() and receiveAndConvert() methods are synchronous. So we need message-driven POJO and Listener.
+
+### 17.3.1 Creating message-driven POJO
 
 MDB : Message Driven Bean
 
-picture : message-listener based on MDB
+![message-listener-based-on-MDB](images/173-MDB-message-listener.png)
+
+#### Method 1
 
 ```java
 @Bean
@@ -144,7 +157,7 @@ public class JmsListener implements MessageListener {
 }
 ```
 
-2. Spring JMS Listener
+#### Method 2 : Spring JMS Listener
 
 ```java
 @Bean
@@ -174,20 +187,20 @@ public void receiveMessage(final Message message) {
 }
 ```
 
-## 17.3 Messaging with AMQP
+## 17.4 Messaging with AMQP
 
-### 17.3.0 Why need AMQP (Advantages)
+### 17.4.0 Why need AMQP (Advantages)
 
 1. JMS’s API specification ensures that all JMS implementations can be used through a common API but doesn’t ensure that messages sent by one JMS implementation can be consumed by a different JMS implementation. AMQP’s wire-level protocol, on the other hand, specifies the format that messages will take when routing between the producer and consumer. Consequently, AMQP is more interoperable than JMS--not only across different AMQP implementations, but also across languages and platforms.
 2. Another significant advantage is that AMQP has a much more flexible and transparent messaging model. With JMS, there are only two messaging models to choose from: point-to-point and publish/subscribe. Both of those models are certainly possible with AMQP, but AMQP enables you to route messages in a number of ways, and it does this by decoupling the message producer from the queue(s) in which the messages will be placed.
 
-### 17.3.1 Introduction to AMQP
+### 17.4.1 Introduction to AMQP
 
-![amqp-transferring-model](images/171-amqp-transferring-model.png)
+![amqp-transferring-model](images/174-amqp-transferring-model.png)
 
-Specific information can be found in [rabbitmq-docs](https://www.rabbitmq.com/docs)
+More information about amqp models can be found in [rabbitmq-docs](https://www.rabbitmq.com/docs)
 
-### 17.3.2 AMQP Messaging with Spring
+### 17.4.2 AMQP Messaging with Spring
 
 ```xml
 <dependency>
@@ -203,7 +216,7 @@ Specific information can be found in [rabbitmq-docs](https://www.rabbitmq.com/do
 </dependency>
 ```
 
-#### Config files
+### 17.4.3 Config files
 
 1. ConnectFactory
 
@@ -228,16 +241,7 @@ Specific information can be found in [rabbitmq-docs](https://www.rabbitmq.com/do
  }
 ```
 
-3. MessageConverter
-
-```java
-@Bean
- public MessageConverter messageConverter() {
-     return new SimpleMessageConverter();
- }
-```
-
-4. RabbitTemplate
+3. RabbitTemplate
 
 ```java
  @Bean
@@ -248,7 +252,16 @@ Specific information can be found in [rabbitmq-docs](https://www.rabbitmq.com/do
  }
 ```
 
-#### Sending Messages
+4. MessageConverter
+
+```java
+@Bean
+ public MessageConverter messageConverter() {
+     return new SimpleMessageConverter();
+ }
+```
+
+### 17.4.4 Sending Messages
 
 ```java
 @Override
@@ -267,13 +280,17 @@ public Spittle receiveMessage() {
 }
 ```
 
-The big downside of consuming messages with JmsTemplate is that both the receive() and receiveAndConvert() methods are synchronous.
+## 17.5 message-driven POJO and Message-Listener (Receiving Messages)
 
-1. Creating message-driven POJO
+However, the big downside of consuming messages with JmsTemplate is that both the receive() and receiveAndConvert() methods are synchronous. So we need message-driven POJO and Listener.
+
+### 17.5.1 Creating message-driven POJO
 
 MDB : Message Driven Bean
 
-picture : message-listener based on MDB
+![message-listener-based-on-MDB](images/173-MDB-message-listener.png)
+
+#### Method 1
 
 ```java
  @Bean
@@ -299,7 +316,7 @@ public class AmqpListener implements MessageListener {
 }
 ```
 
-2. Spring JMS Listener
+#### Method 2 : Spring Rabbit Listener
 
 ```java
 @Bean
@@ -310,7 +327,7 @@ public RabbitListenerContainerFactory rabbitListenerContainerFactory() {
     return containerFactory;
 }
 
-\
+
 @RabbitListener(bindings = @QueueBinding(
         value = @Queue(QUEUE_NAME),
         exchange = @Exchange(value = EXCHANGE_NAME, type = ExchangeTypes.DIRECT), key = ROUTING_KEY)
