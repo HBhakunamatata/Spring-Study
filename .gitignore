@@ -19,3 +19,6 @@ buildNumber.properties
 #IDEA projects setting file
 *.iml
 .idea
+
+
+/part-04-integrating-spring/spring-19-sending-email-with-spring/src/main/resources/email.properties
