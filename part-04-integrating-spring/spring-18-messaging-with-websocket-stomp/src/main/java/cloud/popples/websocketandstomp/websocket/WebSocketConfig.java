@@ -16,7 +16,6 @@ public class WebSocketConfig implements WebSocketConfigurer {
         registry.addHandler(webSocketHandler(), "/marco");
     }
 
-
     @Bean
     public WebSocketHandler webSocketHandler() {
         return new MarcoHandler();

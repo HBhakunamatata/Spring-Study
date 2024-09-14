@@ -13,6 +13,20 @@ socket. It enables asynchronous messaging between a web browser and a server.
 
 ### 18.1.1 Config WebSocket
 
+```xml
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-websocket</artifactId>
+    <version>${spring-version}</version>
+</dependency>
+
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-messaging</artifactId>
+    <version>${spring-version}</version>
+</dependency>
+```
+
 WebMvcConfig + WebSocketConfig
 
 ```java
@@ -96,6 +110,32 @@ public class MarcoHandler extends AbstractWebSocketHandler {
 ```
 
 ## 18.2 Working with STOMP messaging
+
+```xml
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-websocket</artifactId>
+    <version>${spring-version}</version>
+</dependency>
+
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-messaging</artifactId>
+    <version>${spring-version}</version>
+</dependency>
+
+<dependency>
+    <groupId>org.webjars</groupId>
+    <artifactId>stomp-websocket</artifactId>
+    <version>2.3.0</version>
+</dependency>
+
+<dependency>
+    <groupId>com.fasterxml.jackson.core</groupId>
+    <artifactId>jackson-databind</artifactId>
+    <version>2.13.4.2</version>
+</dependency>
+```
 
 ### 18.2.1 Introduction to STOMP
 
