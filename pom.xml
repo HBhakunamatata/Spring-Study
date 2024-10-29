@@ -9,7 +9,6 @@
     <packaging>pom</packaging>
     <version>1.0.0-SNAPSHOT</version>
     <modules>
-        <module>spring-09-mybatis</module>
         <module>part-01-spring-core</module>
         <module>part-02-spring-web</module>
         <module>part-03-spring-backend</module>
