@@ -53,11 +53,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 ### 9.1.4 Three override methods in WebSecurityConfigurerAdapter
 
-|     Override Method      |                                                     Description |
-|:------------------------:|----------------------------------------------------------------|
-| configure(WebSecurity)   |           Override to configure Spring Security’s filter chain. |
-| configure(HttpSecurity)  | Override to configure how requests are secured by interceptors. |
-| configure(AuthenticationManagerBuilder) |                    Override to configure user-details services. |
+| Override Method | Description |
+|:---:|---|
+| configure(WebSecurity) | Override to configure Spring Security’s filter chain. |
+| configure(HttpSecurity) | Override to configure how requests are secured by interceptors. |
+| configure(AuthenticationManagerBuilder) | Override to configure user-details services. |
 
 ```java
 @Override

@@ -42,9 +42,9 @@ The Java Message Service (JMS) is a Java standard that defines a common API for 
 </dependency>
 
 <dependency>
-<groupId>org.springframework</groupId>
-<artifactId>spring-jms</artifactId>
-<version>${spring-version}</version>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-jms</artifactId>
+    <version>${spring-version}</version>
 </dependency>
 ```
 
