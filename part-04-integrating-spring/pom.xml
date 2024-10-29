@@ -11,13 +11,14 @@
     <packaging>pom</packaging>
 
     <name>part-04-integrating-spring</name>
-    <url>http://maven.apache.org</url>
+
     <modules>
         <module>spring-15-work-with-remote-services</module>
         <module>spring-16-creating-restapi</module>
         <module>spring-17-messaging-in-spring</module>
         <module>spring-18-messaging-with-websocket-stomp</module>
         <module>spring-19-sending-email-with-spring</module>
+        <module>spring-20-managing-beans-with-jmx</module>
     </modules>
 
     <properties>

@@ -177,7 +177,7 @@ public interface SpitterRepository2 extends JpaRepository<Spitter, Long> {
 define custom queries for one table that cannot be created by Spring Data JPA
 
 ```java
-public interface SpitterRepository2 extends JpaRepository<Spitter, Long>, SpitterSweeper {
+public interface SpitterRepository2 extends JpaRepository<Spitter, Long> {
 
     @Query("select s from Spitter s where s.email like '%gmail.com'")
     List<Spitter> findAllGmailSpitters();

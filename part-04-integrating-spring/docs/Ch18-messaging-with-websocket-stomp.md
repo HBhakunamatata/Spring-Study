@@ -6,8 +6,7 @@
 
 ## 18.1 Working with Spring’s low-level WebSocket API
 
-WebSocket is a protocol providing full-duplex communication across a single
-socket. It enables asynchronous messaging between a web browser and a server.
+WebSocket is a protocol providing full-duplex communication across a single socket. It enables asynchronous messaging between a web browser and a server.
 
 ![websocket-communication-channel](images/181-websocket-communication-channel.png)
 
